@@ -2,6 +2,13 @@
 
 This Fusion Assembly acts as a framework for CAM programming, and configurable fixturing 
 
+The file is intended to be used as described in this video lecture, and more broadly to work with the 
+container method for setting up CAM programs. 
+Strictly speaking the container method for programming is not needed, but it is a very strong compliment to this method. 
+
+If you don't want to understand the background and theory behind the Workholding Library method, 
+you can just skip to the usage instructions [here](#A-better-way!-working-with-ancesstor-files). 
+
 # Core Concepts: 
     
 ## Simple Replacable Container 8:51
