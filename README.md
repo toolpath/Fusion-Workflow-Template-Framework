@@ -44,6 +44,8 @@ Once you have a couple of basic component files that share the same joint origin
     - ZeroPointAttachment (JOC)
     - JawPosition1 (JOC)
     - JawPosition2 (JOC)
+    - SoftJawAttach1 (JOC)
+    - SoftJawAttach2 (JOC)
     - Vise Geometry
 
 - Pallet
@@ -87,8 +89,56 @@ This file is constructured in a very similar way to the vise file.
 Again, the joint origin structure used here must have a common lineage across all pallete type files and save-as is used to preserve that. 
 
 
-# Overview of how to integrate a Workholding Assembly File into a Workflow Template 14:34
+# Mapping the joints in a Workholding Assembly File 14:34
 
-# Get started with the sample Workholding Assembly File 16:31 
+# Download these files so you don't have to start from scratch! 16:31 
+
+# What is a Workflow Template? 17:03
+
+You might already be using one of these? You might also have heard it called the "Container method". 
+Rob Lockwood presented the [original container method talk at a AU 20XX](https://www.autodesk.com/autodesk-university/class/Streamlining-CAM-Workflows-Templates-2019). 
+
+Workflow templates, or container templates, are a powerful way to speed up your programming by associating toolpaths to the container so you can swap models in without having to re-click all the geometry. 
+
+But as presented in the original talk, they have a key weakness -- a specific container template was tied to 
+a single machine and workholding setup. 
+If you wanted to change that out, you needed to basically start over and make a new container. 
+
+We can integrate replacable workholding assemblies to fix this.
+But first, lets just relive the pain of changing workholding or machine models using the old method. 
+
+
+# The nightmare scenario we're all trying to get past when swapping workholding 18:32
+This is an example of how hard it can be to swap an existing program to a new machine, new work holding, etc. 
+This is the world we live in, if we don't take the time to build a replacable workholding library. 
+It is not fun. 
+
+# A better way! working with ancesstor files 22:13
+## Understanding the Workholding Assembly File 23:29
+## Build a Vise Type Container File 23:42
+- Open the Vise ancesstor file, and right away use save-as to create a new file. Save-as is critical! 
+- You are free to delete the vise geometry component. This leaves just the JOC instances. Don't delete those, they are the key to making this whole thing work. If you accidentally delete those, don't save anything. Start over from the ancestor file. 
+
+You can never re-add a JOC once you've deleted it. Even if you give it the same name, internal information in Fusion has been lost. 
+
+## Prep an existing vise geometry for use with the vise ancestor file 24:20 
+- Open a vise geometry file. If there are existing joint origins in the source file, don't use them. Delete existing joint origins, so we can use the ones attached to our JOC in our Vise component file. 
+- 25:10 Cleanup the vise model by removing any existing joints and motion links
+- 25:15 Put the vise geometry into its own component
+- 25:34 Make sure the origin of the container matches up with where you want the zero point to be
+- 25:47 Add new motion joints to the vise. Make sure you use the origin of the container as the snap selection. This make sure the joint lives inside the component with the vise geometry. 
+- 26:17 Add new motion link to couple the jaw motion together
+- 26:25 Select the vise base and ground it to parent. 
+
+After these steps we consider our Vise container fully rigged
+
+## Copy the rigged vise into the new Vise Type Container file 26:32
+- Copy the top level Vise container from the rigged file
+- Go back into your Vise Type File and, right click on root component and `Paste new` 26:47
+- Right click the newly pasted Vise container and select `Ground to parent`
+- Create new joints between the vise geometry and the existing JOC origins 26:55
+
+
+
 
 
