@@ -7,7 +7,7 @@ container method for setting up CAM programs.
 Strictly speaking the container method for programming is not needed, but it is a very strong compliment to this method. 
 
 If you don't want to understand the background and theory behind the Workholding Library method, 
-you can just skip to the usage instructions [here](#A-better-way!-working-with-ancesstor-files). 
+you can just skip to the usage instructions [here](#a-better-way-working-with-ancesstor-files-2213). 
 
 # Core Concepts: 
     
