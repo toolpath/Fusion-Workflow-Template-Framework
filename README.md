@@ -37,6 +37,10 @@ What if you don't want to be stuck just using the component origin for joint sna
 
 Once you have a couple of basic component files that share the same joint origin lineage, you can build an assemly that uses them to make replacable parts. 
 
+  note: A JOC is meant to build a joint in the current file, that can be linked to in a parent file. 
+  So a JOC in a file inherantly means that you intend to embed the file into a higher level assembly.
+  You'll see that when you get to your top level workflow file you won't have any JOCs at that level. 
+
 
 ## Buudling blocks for a replacable workholding library ***(time - 11:57)***
 
